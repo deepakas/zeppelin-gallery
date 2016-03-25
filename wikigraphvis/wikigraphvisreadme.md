@@ -18,7 +18,7 @@ https://datahub.io/dataset/wikipedia-clickstream
 7. Create the reusable graph function 
 8. Create the reusable displayForceLayout function to display in Force Layout format 
 9. Create the reusable displaySankeyLayout
-10. Run Example  on big cities
+10. Run Example  on terms "Big_data" and "Data_science"
 
 ## 1. Add dependencies for databricks csv package. 
 ```
@@ -638,8 +638,111 @@ displaySankeyChart(cities,"sankeydiv1")
 
 displayForceLayout(tech,"div2")
 ``` 
-## 10. Run Sankey Example  on pages on "Big_data" and "Data_science"  
+## 11. Run Sankey Example  on pages on "Big_data" and "Data_science"  
 ```
  
 displaySankeyChart(tech,"bigdata")
 ```
+
+## 12. Force Layout Output Example 
+
+<div id ="div2">  </div>
+<style>
+.node_circle {
+  stroke: #777;
+  stroke-width: 1.3px;
+}
+.node_label {
+  pointer-events: none;
+}
+.link {
+  stroke: #777;
+  stroke-opacity: .2;
+}
+.node_count {
+  stroke: #777;
+  stroke-width: 1.0px;
+  fill: #999;
+}
+text.legend {
+  font-family: Verdana;
+  font-size: 13px;
+  fill: #000;
+  color:#000;
+}
+.node text {
+  font-family: "Helvetica Neue","Helvetica","Arial",sans-serif;
+  font-size: 17px;
+  font-weight: 200;
+  color:#000;
+}
+</style>
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<script>
+var graph = JSON.parse( JSON.stringify( {"nodes":[{"name":"Data analysis"},{"name":"Machine learning"},{"name":"Statistics"},{"name":"Industrial Internet"},{"name":"MapReduce"},{"name":"Utah Data Center"},{"name":"Analytics"},{"name":"Apache Hadoop"},{"name":"Big data"},{"name":"NoSQL"},{"name":"Cloud computing"},{"name":"Industry 4.0"},{"name":"DJ Patil"},{"name":"Data science"},{"name":"Big Oil"},{"name":"Data visualization"},{"name":"Kaggle"},{"name":"List of time periods"},{"name":"BigTable"},{"name":"Internet of Things"}],"links":[{"source":7,"target":8,"value":126},{"source":9,"target":8,"value":27},{"source":6,"target":8,"value":26},{"source":13,"target":8,"value":22},{"source":19,"target":8,"value":21},{"source":2,"target":8,"value":9},{"source":4,"target":8,"value":8},{"source":14,"target":8,"value":7},{"source":5,"target":8,"value":7},{"source":12,"target":13,"value":7},{"source":18,"target":8,"value":6},{"source":17,"target":8,"value":6},{"source":1,"target":13,"value":5},{"source":10,"target":8,"value":5},{"source":11,"target":8,"value":5},{"source":16,"target":13,"value":5},{"source":15,"target":13,"value":5},{"source":0,"target":8,"value":5},{"source":3,"target":8,"value":5},{"source":15,"target":8,"value":4}]}));
+//var graph = JSON.parse( {"nodes":[{"name":"Data analysis"},{"name":"Machine learning"},{"name":"Statistics"},{"name":"Industrial Internet"},{"name":"MapReduce"},{"name":"Utah Data Center"},{"name":"Analytics"},{"name":"Apache Hadoop"},{"name":"Big data"},{"name":"NoSQL"},{"name":"Cloud computing"},{"name":"Industry 4.0"},{"name":"DJ Patil"},{"name":"Data science"},{"name":"Big Oil"},{"name":"Data visualization"},{"name":"Kaggle"},{"name":"List of time periods"},{"name":"BigTable"},{"name":"Internet of Things"}],"links":[{"source":7,"target":8,"value":126},{"source":9,"target":8,"value":27},{"source":6,"target":8,"value":26},{"source":13,"target":8,"value":22},{"source":19,"target":8,"value":21},{"source":2,"target":8,"value":9},{"source":4,"target":8,"value":8},{"source":14,"target":8,"value":7},{"source":5,"target":8,"value":7},{"source":12,"target":13,"value":7},{"source":18,"target":8,"value":6},{"source":17,"target":8,"value":6},{"source":1,"target":13,"value":5},{"source":10,"target":8,"value":5},{"source":11,"target":8,"value":5},{"source":16,"target":13,"value":5},{"source":15,"target":13,"value":5},{"source":0,"target":8,"value":5},{"source":3,"target":8,"value":5},{"source":15,"target":8,"value":4}]});
+var width = 800,
+    height =600;
+var color = d3.scale.category20();
+var force = d3.layout.force()
+    .charge(-700)
+    .linkDistance(180)
+    .size([width, height]);
+var svg = d3.select("#div2").append("svg")
+    .attr("width", width)
+    .attr("height", height);
+    
+force
+    .nodes(graph.nodes)
+    .links(graph.links)
+    .start();
+var link = svg.selectAll(".link")
+    .data(graph.links)
+    .enter().append("line")
+    .attr("class", "link")
+    .style("stroke-width", function(d) { return Math.sqrt(d.value); });
+var node = svg.selectAll(".node")
+    .data(graph.nodes)
+    .enter().append("g")
+    .attr("class", "node")
+    .call(force.drag);
+node.append("circle")
+    .attr("r", 10)
+    .style("fill", function (d) {
+    if (d.name.startsWith("other")) { return color(1); } else { return color(2); };
+})
+node.append("text")
+      .attr("dx", 10)
+      .attr("dy", ".35em")
+      .text(function(d) { return d.name });
+      
+//Now we are giving the SVGs co-ordinates - the force layout is generating the co-ordinates which this code is using to update the attributes of the SVG elements
+force.on("tick", function () {
+    link.attr("x1", function (d) {
+        return d.source.x;
+    })
+        .attr("y1", function (d) {
+        return d.source.y;
+    })
+        .attr("x2", function (d) {
+        return d.target.x;
+    })
+        .attr("y2", function (d) {
+        return d.target.y;
+    });
+    d3.selectAll("circle").attr("cx", function (d) {
+        return d.x;
+    })
+        .attr("cy", function (d) {
+        return d.y;
+    });
+    d3.selectAll("text").attr("x", function (d) {
+        return d.x;
+    })
+        .attr("y", function (d) {
+        return d.y;
+    });
+});
+ 
+</script>
+
