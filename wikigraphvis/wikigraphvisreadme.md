@@ -565,8 +565,7 @@ var sankey = d3.sankey()
 var path = sankey.link();
 
 var graph = JSON.parse( JSON.stringify( ${ data}));
-
-  sankey
+sankey
       .nodes(graph.nodes)
       .links(graph.links)
       .layout(32);
