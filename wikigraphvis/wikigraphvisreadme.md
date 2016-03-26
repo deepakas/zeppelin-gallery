@@ -663,6 +663,35 @@ http://deepakas.github.io/zeppelin-gallery/wikigraphvis/d3output/bigdatad3forcel
 http://deepakas.github.io/zeppelin-gallery/wikigraphvis/d3output/bigdatad3sankey.html
 <iframe src ="http://deepakas.github.io/zeppelin-gallery/wikigraphvis/d3output/bigdatad3sankey.html" width=400 ,height=200> Sankey Layout Example </iframe>
  
+## 14. Added angularjs text box to update query_terms and query_count ( Click works only once- Need to fix)   
 
+```
+ 
+val button = <div class="btn btn-success btn-sm">Update Display</div>.onClick{() =>
+   z.run("20160326-202433_889465080" )
+   z.run("20160326-203128_1912408797")
+}
 
+   
 
+<div>
+  { <h4> Query_String :  {{{{query_term}}}}</h4> }
+  
+   Query Term : { <input type="text" size="50" ></input>.model("query_term", "'London', 'Berlin'") }
+   Query Count : { <input type="text"></input>.model("query_count", "20") }
+  {button}
+</div>.display
+```
+
+## 15. Run Sankey Example  on the query_terms  
+```
+ val graphdata   = generateGraphJson(   z.angular("query_term").toString  ,z.angular("query_count").toString.toInt)
+ 
+ 
+displaySankeyChart(graphdata,"sankey2")
+``` 
+## 16. Run Force Layout  Example  on query_terms 
+```
+ 
+displaySankeyChart(graphdata,"forcelayout")
+```
