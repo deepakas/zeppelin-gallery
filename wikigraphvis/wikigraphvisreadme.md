@@ -1,4 +1,4 @@
-%md 
+ 
 # Zeppelin example on Graph Visualisation using wikipedia webanalytics data - D3 Force Layout and Sankey Chart 
 
 ### The example is based on the databricks example from this link. 
