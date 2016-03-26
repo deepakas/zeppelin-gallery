@@ -8,11 +8,14 @@ This is an example of processing wikipedia web analytics data with Spark and Zep
 ### Zeppelin json notebook which contains the code is here. 
 https://github.com/deepakas/zeppelin-gallery/blob/master/wikigraphvis/wikizeppelinnotebook.json
 
-### The example is based on the databricks example from this link. 
+### The example is based on the databricks example from this link. I added code to get it working with zeppelin and also added some reusable functions. There is some issues when I tried to create multiple charts. 
 https://docs.cloud.databricks.com/docs/latest/featured_notebooks/Wikipedia%20Clickstream%20Data.html
 
 ### The wikipedia web analytics data used is downloaded from the following website
 https://datahub.io/dataset/wikipedia-clickstream
+
+### The d3 sankey code is based on 
+https://bost.ocks.org/mike/sankey/
 
 ## Here are the steps used in the example
 
@@ -652,15 +655,13 @@ displaySankeyChart(tech,"bigdata")
 
 ## 12. Force Layout Output Example  
 
-<iframe src ="http://deepakas.github.io/zeppelin-gallery/wikigraphvis/d3forcelayoutexample.html" width=400 ,height=200> D3 Force Layout Example </iframe>
-http://deepakas.github.io/zeppelin-gallery/wikigraphvis/d3forcelayoutexample.html
-
-http://htmlpreview.github.io/?https://github.com/deepakas/zeppelin-gallery/blob/master/wikigraphvis/d3forcelayoutex.html
+<iframe src ="http://deepakas.github.io/zeppelin-gallery/wikigraphvis/d3output/bigdatad3forcelayout.html" width=400 ,height=200> D3 Force Layout Example </iframe>
+http://deepakas.github.io/zeppelin-gallery/wikigraphvis/d3output/bigdatad3forcelayout.html
 
 ## 13. Sankey Layout Output Example  
 
-http://deepakas.github.io/zeppelin-gallery/wikigraphvis/d3sankeyexample.html
-<iframe src ="http://deepakas.github.io/zeppelin-gallery/wikigraphvis/d3sankeyexample.html" width=400 ,height=200> Sankey Layout Example </iframe>
+http://deepakas.github.io/zeppelin-gallery/wikigraphvis/d3output/bigdatad3sankey.html
+<iframe src ="http://deepakas.github.io/zeppelin-gallery/wikigraphvis/d3output/bigdatad3sankey.html" width=400 ,height=200> Sankey Layout Example </iframe>
  
 
 
