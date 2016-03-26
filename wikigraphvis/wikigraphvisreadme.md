@@ -643,9 +643,13 @@ displayForceLayout(tech,"div2")
 displaySankeyChart(tech,"bigdata")
 ```
 
-## 12. Force Layout Output Example 
+## 12. Force Layout Output Example ( Github html preview output is duplicating the chart. Only the second chart is displayed when opening html directly in a browser)
 
-<iframe  src="http://htmlpreview.github.io/?https://github.com/deepakas/zeppelin-gallery/blob/master/wikigraphvis/d3forcelayoutex.html" ></iframe>
+http://htmlpreview.github.io/?https://github.com/deepakas/zeppelin-gallery/blob/master/wikigraphvis/d3forcelayoutex.html
+
+## 13. Sankey Layout Output Example ( Github html preview output is duplicating the chart. Only the second chart is displayed when opening html directly in a browser)
+
+http://htmlpreview.github.io/?https://github.com/deepakas/zeppelin-gallery/blob/master/wikigraphvis/d3sankeylayoutex.html
 
 
 
