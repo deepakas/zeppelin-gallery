@@ -1,6 +1,10 @@
  
 # Zeppelin example on Graph Visualisation using wikipedia webanalytics data - D3 Force Layout and Sankey Chart 
 
+## Summary
+
+This is an example of processing wikipedia web analytics data with Spark and Zeppelin and visualizing in D3 to understand the most common paths people click given a wikipedia page. The data was available for the month of February.
+
 ### Zeppelin json notebook which contains the code is here. 
 https://github.com/deepakas/zeppelin-gallery/blob/master/wikigraphvis/wikizeppelinnotebook.json
 
