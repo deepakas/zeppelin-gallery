@@ -655,15 +655,13 @@ displaySankeyChart(tech,"bigdata")
 
 ## 12. Force Layout Output Example  
 
-<iframe src ="http://deepakas.github.io/zeppelin-gallery/wikigraphvis/d3forcelayoutexample.html" width=400 ,height=200> D3 Force Layout Example </iframe>
-http://deepakas.github.io/zeppelin-gallery/wikigraphvis/d3forcelayoutexample.html
-
-http://htmlpreview.github.io/?https://github.com/deepakas/zeppelin-gallery/blob/master/wikigraphvis/d3forcelayoutex.html
+<iframe src ="http://deepakas.github.io/zeppelin-gallery/wikigraphvis/d3output/bigdatad3forcelayout.html" width=400 ,height=200> D3 Force Layout Example </iframe>
+http://deepakas.github.io/zeppelin-gallery/wikigraphvis/d3output/bigdatad3forcelayout.html
 
 ## 13. Sankey Layout Output Example  
 
-http://deepakas.github.io/zeppelin-gallery/wikigraphvis/d3sankeyexample.html
-<iframe src ="http://deepakas.github.io/zeppelin-gallery/wikigraphvis/d3sankeyexample.html" width=400 ,height=200> Sankey Layout Example </iframe>
+http://deepakas.github.io/zeppelin-gallery/wikigraphvis/d3output/bigdatad3sankey.html
+<iframe src ="http://deepakas.github.io/zeppelin-gallery/wikigraphvis/d3output/bigdatad3sankey.html" width=400 ,height=200> Sankey Layout Example </iframe>
  
 
 
