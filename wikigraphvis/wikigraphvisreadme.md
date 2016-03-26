@@ -1,6 +1,9 @@
  
 # Zeppelin example on Graph Visualisation using wikipedia webanalytics data - D3 Force Layout and Sankey Chart 
 
+### Zeppelin json notebook which contains the code is here. 
+https://github.com/deepakas/zeppelin-gallery/blob/master/wikigraphvis/wikizeppelinnotebook.json
+
 ### The example is based on the databricks example from this link. 
 https://docs.cloud.databricks.com/docs/latest/featured_notebooks/Wikipedia%20Clickstream%20Data.html
 
