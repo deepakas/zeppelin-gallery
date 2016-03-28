@@ -1,5 +1,8 @@
 <html>
 <body>
+<div id ="bigdata" > 
+<h2>Sankey Chart on Wikipedia Data  <h2>
+<h3>Query Terms :     'Big_data', 'Data_science','Machine_learning' ,'Data_visualization' ,'Business_intelligence','Analytics'   <h3> </ </div>
 <div id ="bigdata" > </div>
 <style>
 .node rect {
@@ -286,6 +289,7 @@ var margin = {top: 1, right: 1, bottom: 6, left: 1},
     width = 960 - margin.left - margin.right,
     height = 500 - margin.top - margin.bottom;
 var formatNumber = d3.format(",.0f"),
+    //format = function(d) { return formatNumber(d) + " TWh"; },
     format = function(d) { return formatNumber(d) + " TWh"; },
     color = d3.scale.category20();
 var svg = d3.select("#bigdata").append("svg")
@@ -298,7 +302,7 @@ var sankey = d3.sankey()
     .nodePadding(10)
     .size([width, height]);
 var path = sankey.link();
-var graph = JSON.parse( JSON.stringify( {"nodes":[{"name":"Data analysis"},{"name":"Machine learning"},{"name":"Statistics"},{"name":"Industrial Internet"},{"name":"MapReduce"},{"name":"Utah Data Center"},{"name":"Analytics"},{"name":"Apache Hadoop"},{"name":"Big data"},{"name":"NoSQL"},{"name":"Cloud computing"},{"name":"Industry 4.0"},{"name":"DJ Patil"},{"name":"Data science"},{"name":"Big Oil"},{"name":"Data visualization"},{"name":"Kaggle"},{"name":"List of time periods"},{"name":"BigTable"},{"name":"Internet of Things"}],"links":[{"source":7,"target":8,"value":126},{"source":9,"target":8,"value":27},{"source":6,"target":8,"value":26},{"source":13,"target":8,"value":22},{"source":19,"target":8,"value":21},{"source":2,"target":8,"value":9},{"source":4,"target":8,"value":8},{"source":14,"target":8,"value":7},{"source":5,"target":8,"value":7},{"source":12,"target":13,"value":7},{"source":18,"target":8,"value":6},{"source":17,"target":8,"value":6},{"source":1,"target":13,"value":5},{"source":10,"target":8,"value":5},{"source":11,"target":8,"value":5},{"source":16,"target":13,"value":5},{"source":15,"target":13,"value":5},{"source":0,"target":8,"value":5},{"source":3,"target":8,"value":5},{"source":15,"target":8,"value":4}]}));
+var graph = JSON.parse( JSON.stringify( {"nodes":[{"name":"Data analysis"},{"name":"Machine learning"},{"name":"Data warehouse"},{"name":"Artificial intelligence"},{"name":"Analytics"},{"name":"Predictive analytics"},{"name":"Apache Hadoop"},{"name":"BusinessObjects"},{"name":"Business intelligence tools"},{"name":"Big data"},{"name":"Infographic"},{"name":"Artificial neural network"},{"name":"NoSQL"},{"name":"Business intelligence"},{"name":"Pattern recognition"},{"name":"Support vector machine"},{"name":"Data science"},{"name":"Regression analysis"},{"name":"Enterprise resource planning"},{"name":"Tableau Software"},{"name":"Computer science"},{"name":"Data mining"},{"name":"SharePoint"},{"name":"Data visualization"},{"name":"Deep learning"},{"name":"Business analytics"},{"name":"Enterprise software"},{"name":"Internet of Things"}],"links":[{"source":6,"target":9,"value":126},{"source":11,"target":1,"value":47},{"source":21,"target":1,"value":40},{"source":12,"target":9,"value":27},{"source":24,"target":1,"value":27},{"source":4,"target":9,"value":26},{"source":14,"target":1,"value":24},{"source":16,"target":9,"value":22},{"source":27,"target":9,"value":21},{"source":8,"target":13,"value":20},{"source":13,"target":4,"value":18},{"source":0,"target":13,"value":18},{"source":3,"target":1,"value":17},{"source":15,"target":1,"value":15},{"source":10,"target":23,"value":15},{"source":4,"target":23,"value":15},{"source":16,"target":1,"value":15},{"source":7,"target":13,"value":14},{"source":5,"target":1,"value":14},{"source":0,"target":23,"value":14},{"source":20,"target":1,"value":13},{"source":19,"target":23,"value":13},{"source":25,"target":13,"value":13},{"source":22,"target":13,"value":13},{"source":26,"target":13,"value":13},{"source":19,"target":13,"value":12},{"source":21,"target":4,"value":12},{"source":2,"target":13,"value":12},{"source":18,"target":13,"value":11},{"source":17,"target":1,"value":11}]}));
   sankey
       .nodes(graph.nodes)
       .links(graph.links)
@@ -311,7 +315,7 @@ var graph = JSON.parse( JSON.stringify( {"nodes":[{"name":"Data analysis"},{"nam
       .style("stroke-width", function(d) { return Math.max(1, d.dy); })
       .sort(function(a, b) { return b.dy - a.dy; });
   link.append("title")
-      .text(function(d) { return d.source.name + " → " + d.target.name + "  " + format(d.value); });
+      .text(function(d) { return d.source.name + " → " + d.target.name + " : " + format(d.value); });
   var node = svg.append("g").selectAll(".node")
       .data(graph.nodes)
     .enter().append("g")
@@ -327,7 +331,7 @@ var graph = JSON.parse( JSON.stringify( {"nodes":[{"name":"Data analysis"},{"nam
       .style("fill", function(d) { return d.color = color(d.name.replace(/ .*/, "")); })
       .style("stroke", function(d) { return d3.rgb(d.color).darker(2); })
     .append("title")
-      .text(function(d) { return d.name + "  " + format(d.value); });
+      .text(function(d) { return d.name + " : " + format(d.value); });
   node.append("text")
       .attr("x", -6)
       .attr("y", function(d) { return d.dy / 2; })
